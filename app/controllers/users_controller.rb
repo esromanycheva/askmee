@@ -7,13 +7,7 @@ class UsersController < ApplicationController
   def create
     user_params = params.require(:user).permit(:name, :nickname, :email, :password)
     user = User.create(user_params)
-    login(user)
-    redirect_to root_path, notice: 'Вы успешно зарегистрировались!'
-  end
-
-  private
-
-  def login(user)
     session[:user_id] = user.id
+    redirect_to root_path, notice: 'Вы успешно зарегистрировались!'
   end
 end
