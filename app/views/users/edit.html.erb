@@ -18,9 +18,7 @@
       <p><%= form.text_field :nickname, class: 'form-text-field' %></p>
 
       <p class="mt"><%= form.label :color, 'Цветовая гамма профиля' %></p>
-      <p><%= form.radio_button :color, '#09DC02' %>Зеленый</p>
-      <p><%= form.radio_button :color, '#f48c06' %>Оранжевый</p>
-      <p><%= form.radio_button :color, '#1E3BC6' %>Синий</p>
+      <%= form.color_field :color %>
 
       <p class="mt-lg text-sm">Если не хотите менять пароль — оставьте эти поля пустыми!</p>
 
