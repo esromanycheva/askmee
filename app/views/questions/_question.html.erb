@@ -8,6 +8,10 @@
   </div>
 <% end %>
 
+<p class="mb text-sm text-grey">
+  от автора <%= link_to "@#{question.author.nickname}", user_path(question.author) %>
+</p>
+
 <div class="text-sm question-footer ">
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
