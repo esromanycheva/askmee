@@ -34,3 +34,16 @@
     <%= render question %>
   </div>
 <% end %>
+
+<% if @questions.any? %>
+  <div class="container">
+  </div>
+
+  <div class="container mt-sm">
+  </div>
+
+  <% @questions.each do |question| %>
+  <% end %>
+<% else %>
+  <%= render partial: 'no_questions', locals: {user: @user} %>
+<% end %>
