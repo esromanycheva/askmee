@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   REGEXP_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
   REGEXP_NIKNAME = /\A[\w]+\z/
-  REGEXP_COLOR = /\A#(?:[0-9a-fA-F]{3}){1,2}\z/
+  REGEXP_COLOR = /[[:xdigit:]]/
 
   before_validation :downcase_nickname
 
