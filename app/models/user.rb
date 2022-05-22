@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: REGEXP_EMAIL }
   validates :nickname, uniqueness: true, length: { maximum: 40 }, format: { with: REGEXP_NIKNAME }
-  validates :color, format: { with: REGEXP_COLOR }
+  validates :color, format: { with: REGEXP_COLOR }, on: :update
 
   has_many :questions, dependent: :delete_all
 
