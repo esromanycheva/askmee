@@ -2,8 +2,8 @@ class User < ApplicationRecord
   has_secure_password
 
   REGEXP_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/
-  REGEXP_NIKNAME = /\A[\w]+\z/
-  REGEXP_COLOR = /[[:xdigit:]]/
+  REGEXP_NIKNAME = /\A\w+\z/
+  REGEXP_COLOR = /\A#([[:xdigit:]]{3}){1,2}\z/
 
   before_validation :downcase_nickname
 
