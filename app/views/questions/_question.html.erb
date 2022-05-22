@@ -1,5 +1,5 @@
 <div class="mb-sm">
-  <%= simple_format(question.body) %>
+  <%= safe_join(question.body.split("\n"), tag(:br)) %>
 </div>
 
 <% if question.answer.present? %>
