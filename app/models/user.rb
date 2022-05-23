@@ -17,6 +17,10 @@ class User < ApplicationRecord
 
   gravtastic(secure: true, filetype: :png, size: 100, default: 'retro')
 
+  def to_param
+    nickname
+  end
+
   def downcase_nickname
     nickname&.downcase!
   end
