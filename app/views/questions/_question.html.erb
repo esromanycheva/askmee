@@ -9,7 +9,7 @@
 <% end %>
 
 <p class="mb text-sm text-grey">
-  от автора <%= link_to "@#{question.author.nickname}", user_path(question.author) %>
+  <%= link_to_author(question) %>
 </p>
 
 <div class="text-sm question-footer ">

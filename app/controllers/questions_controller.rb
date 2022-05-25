@@ -17,7 +17,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question_params = params.require(:question).permit(:body, :user_id, :hidden).merge(author_id: current_user.id)
+    question_params = params.require(:question).permit(:body, :user_id, :hidden, :author_id)
+    question_params.merge(author_id: current_user.id) if current_user
 
     @question = Question.new(question_params)
     @user = User.find(params[:question][:user_id])
