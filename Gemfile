@@ -17,6 +17,9 @@ gem 'jbuilder'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'recaptcha'
+
 group :development, :test do
   gem 'pg'
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
