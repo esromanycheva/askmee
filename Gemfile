@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
+gem 'recaptcha', require 'recaptcha/rails'
+
 gem 'font-awesome-rails'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 gem 'sprockets-rails'
