@@ -9,4 +9,8 @@ module ApplicationHelper
       many
     end
   end
+
+  def tags_with_links(text)
+    text.gsub(Hashtag::VALID_HASHTAG_REGEX) { |tag| link_to tag, hashtag_path(tag) }
+  end
 end

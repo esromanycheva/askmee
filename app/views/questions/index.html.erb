@@ -18,6 +18,13 @@
   </h2>
 </div>
 
+<div class="container mt-sm">
+  <h2 class="title-lg mb">Хэштеги</h2>
+  <% @hashtags.each do |hashtag| %>
+    <%= link_to hashtag.name, hashtag_path(hashtag.name), class: 'tag' %>
+  <% end %>
+</div>
+
 <% @questions.each do |question| %>
   <div class="mt-sm container <%= question.hidden? ? 'hidden' : '' %>">
     <p class="mb text-sm text-grey">

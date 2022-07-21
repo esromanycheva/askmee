@@ -1,10 +1,10 @@
-<div class="mb-sm">
-  <%= safe_join(question.body.split("\n"), tag(:br)) %>
+<div class="mt mb-sm">
+  <%= simple_format tags_with_links("— #{question.body }"), tags: %w(a), attributes: %w(href) , wrapper_tag: 'p' %>
 </div>
 
 <% if question.answer.present? %>
   <div class="mb-sm text-dark-red">
-    <%= simple_format(question.answer) %>
+    <%= sanitize tags_with_links("— #{question.answer }"), tags: %w(a), attributes: %w(href) %>
   </div>
 <% end %>
 

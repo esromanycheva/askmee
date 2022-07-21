@@ -1,0 +1,7 @@
+<div class="container">
+  <h1><%= @hashtag.name %></h1>
+
+  <% @hashtag.questions.each do |question| %>
+    <%= render question %>
+  <% end %>
+</div>
