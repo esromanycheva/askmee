@@ -25,7 +25,6 @@ class QuestionsController < ApplicationController
     @question.author = current_user
 
     if check_captcha(@question) && @question.save
-      @question = hashtags_from_body!(@question)
       redirect_to user_path(@question.user), notice: 'Новый вопрос создан!'
     else
       flash.now[:alert] = 'Вы неправильно заполнили поля формы'
@@ -43,7 +42,6 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     if @question.update(question_params)
-      @question = hashtags_from_body!(@question)
       redirect_to user_path(@question.user), notice: 'Сохранили вопрос!'
     else
       flash.now[:alert] = 'При попытке сохранить вопрос возникли ошибки'
@@ -82,11 +80,5 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def hashtags_from_body!(question)
-    matches = "#{question.body} #{question.answer}".to_s.downcase.scan(/#[[:word:]-]+/).flatten
-    tags = matches.map { |m| Hashtag.find_or_create_by!(name: m.gsub('#', '')) }
-    question.hashtags << tags.uniq
-    question.save!
-    question
-  end
+
 end

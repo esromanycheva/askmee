@@ -11,6 +11,8 @@ module ApplicationHelper
   end
 
   def tags_with_links(text)
-    text.gsub(Hashtag::VALID_HASHTAG_REGEX) { |tag| link_to tag, hashtag_path(tag) }
+    text.gsub(Hashtag::VALID_HASHTAG_REGEX) do |hashtag|
+      link_to hashtag, hashtag_path(hashtag.delete("#"))
+    end
   end
 end
