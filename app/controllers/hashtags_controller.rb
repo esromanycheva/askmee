@@ -1,6 +1,5 @@
 class HashtagsController < ApplicationController
   def show
-    @hashtag = Hashtag.find_by(name: params[:id].delete('#'))
-    render_404 if @hashtag.nil?
+    @hashtag = Hashtag.find_by!(name: params[:name])
   end
 end
