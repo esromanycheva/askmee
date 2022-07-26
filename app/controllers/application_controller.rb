@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
 
-  rescue_from ActiveRecord::RecordNotFound, with: :render_404
-
   private
 
   def current_user

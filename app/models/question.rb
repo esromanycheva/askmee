@@ -6,14 +6,13 @@ class Question < ApplicationRecord
   has_many :hashtags, through: :question_hashtags
 
   validates :body, presence: true, length: { maximum: 280 }
-  after_save :add_hashtags
+  after_commit :add_hashtags
 
   private
 
   def add_hashtags
-    matches = "#{body} #{answer}".downcase.scan(/#[[:word:]-]+/)
+    matches = "#{body} #{answer}".downcase.scan(Hashtag::VALID_HASHTAG_REGEX)
     tags = matches.map { |m| Hashtag.find_or_create_by!(name: m.gsub('#', '')) }
-    question_hashtags.destroy_all
-    hashtags << tags
+    self.hashtags = tags.uniq
   end
 end
