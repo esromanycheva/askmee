@@ -1,24 +1,33 @@
-# README
+#### ASK.me  
+Ruby on Rails приложение, в котором можно зарегистрироваться, задавать и отвечать на вопросы своих друзей и анонимных пользователей.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Запуск программы**
 
-Things you may want to cover:
+*Скопируйте репозиторий:*
+```
+git clone git@github.com:esromanycheva/askmee.git
+```
 
-* Ruby version
+*Войдите в папку с программой:*
+```
+cd ./askmee
+```
 
-* System dependencies
+*Установите библиотеки:*
+```
+bundle install
+```
+ 
+*Запустите миграции:*
+```
+rails db:migrate
+```
+*Запустите сервер:*
+```
+rails s
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Реализованный функционал:
+- Задавание вопросов пользователю
+- Ответы на вопросы
+- Поиск ответов по хештегу
