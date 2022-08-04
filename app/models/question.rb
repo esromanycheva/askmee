@@ -8,7 +8,6 @@ class Question < ApplicationRecord
   validates :body, presence: true, length: { maximum: 280 }
 
   after_save_commit :add_hashtags
-  after_destroy_commit :clean_up_tags
 
   private
 
@@ -19,9 +18,5 @@ class Question < ApplicationRecord
     matched_tags.each do |matched_tag|
       self.hashtags << Hashtag.find_or_create_by!(name: matched_tag.gsub('#', ''))
     end
-  end
-
-  def clean_up_tags
-    Hashtag.unused.destroy_all
   end
 end
