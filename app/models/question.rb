@@ -15,8 +15,8 @@ class Question < ApplicationRecord
     question_hashtags.destroy_all
     matched_tags = "#{body} #{answer}".downcase.scan(Hashtag::VALID_HASHTAG_REGEX)
 
-    matched_tags.each do |matched_tag|
-      self.hashtags << Hashtag.find_or_create_by!(name: matched_tag.gsub('#', ''))
+    self.hashtags = matched_tags.map do |matched_tag|
+      Hashtag.find_or_create_by!(name: matched_tag.gsub('#', ''))
     end
   end
 end
